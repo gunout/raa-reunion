@@ -267,10 +267,10 @@ Chaque groupe de doublons est présenté avec :
 Vous avez probablement ouvert le HTML en `file://` (double-clic). Utilisez un serveur HTTP :
 
 ```bash
-npx http-server -p 8000 -c-1
+npx http-server -p 8020 -c-1
 ```
 
-Puis ouvrez `http://localhost:8000`.
+Puis ouvrez `http://localhost:8020`.
 </details>
 
 <details>
