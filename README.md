@@ -98,7 +98,7 @@ npm run serve
 
 Puis ouvrez **http://localhost:8020** dans votre navigateur.
 
-> ⚠️ **Important** : n'ouvrez **jamais** `index.html` en double-clic (`file://`). Le navigateur bloquera le chargement du JSON pour des raisons de sécurité (CORS). Passez toujours par `http://localhost:8000`.
+> ⚠️ **Important** : n'ouvrez **jamais** `index.html` en double-clic (`file://`). Le navigateur bloquera le chargement du JSON pour des raisons de sécurité (CORS). Passez toujours par `http://localhost:8020`.
 
 ---
 
