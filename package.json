@@ -1,0 +1,14 @@
+{
+  "name": "raa-monitor-reunion",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "scrape": "node scraper.js 2026",
+    "scrape-all": "node scraper.js 2024 2025 2026",
+    "serve": "npx http-server -p 8020 -c-1"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}

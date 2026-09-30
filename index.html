@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇷🇪 RAA Réunion — Recueil des Actes Administratifs (974)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.12.1/dist/dsfr.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue-france:#000091;--blue-france-hi:#1212ff;--blue-france-soft:#e3e3fd;
+  --red-marianne:#E1000F;--red-marianne-soft:#ffe9e9;--white:#fff;
+  --grey-50:#f6f6f6;--grey-100:#eee;--grey-200:#e5e5e5;--grey-500:#929292;
+  --grey-700:#3a3a3a;--grey-900:#1e1e1e;
+  --green-bourgeon:#18753c;--green-emeraude:#00a95f;--yellow-tournesol:#ffb800;
+  --violet:#6e4b9e;--violet-soft:#eee4f7;
+  --ocean:#0d7a8a;--ocean-soft:#d6f0f4;--volcan:#c0392b;--volcan-soft:#fce4e0;
+  --font-mono:'SF Mono',Menlo,Consolas,'Courier New',monospace;
+  --font-sans:'Marianne','system-ui',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html,body{height:100%}
+body{font-family:var(--font-sans);background:var(--grey-50);color:var(--grey-900);
+  font-size:13px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--grey-100)}
+::-webkit-scrollbar-thumb{background:var(--grey-500);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--ocean)}
+
+.marianne-band{height:6px;background:linear-gradient(to right,
+  var(--blue-france) 0%,var(--blue-france) 33.33%,var(--white) 33.33%,var(--white) 66.66%,
+  var(--red-marianne) 66.66%,var(--red-marianne) 100%)}
+.bloc-marque{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--white);border-bottom:1px solid var(--grey-200)}
+.bloc-marque-logo{font-weight:700;font-size:13px;color:var(--grey-900);letter-spacing:.3px;
+  text-transform:uppercase;border-right:1px solid var(--grey-200);padding-right:12px}
+.bloc-marque-devise em{display:block;font-style:normal;text-transform:uppercase;
+  letter-spacing:1.2px;font-size:9px;color:var(--grey-500)}
+.bloc-marque-zone{margin-left:auto;font-family:var(--font-mono);font-size:10px;
+  color:var(--grey-500);text-transform:uppercase;letter-spacing:1px}
+
+.topbar{background:var(--white);border-bottom:1px solid var(--grey-200);display:flex;align-items:center;
+  padding:10px 16px;gap:12px;position:sticky;top:6px;z-index:100;flex-wrap:wrap}
+.brand{font-size:14px;font-weight:700;color:var(--ocean);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--yellow-tournesol);
+  box-shadow:0 0 0 3px rgba(255,184,0,.25);animation:pulse 1.8s infinite;flex-shrink:0}
+.brand .dot.ready{background:var(--green-emeraude);box-shadow:0 0 0 3px rgba(0,169,95,.2);animation:none}
+.brand .dot.offline{background:var(--red-marianne);box-shadow:0 0 0 3px rgba(225,0,15,.2);animation:none}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.brand .sub{color:var(--grey-500);font-weight:400;font-size:12px;font-family:var(--font-mono)}
+
+.topbar-right{margin-left:auto;display:flex;gap:14px;font-family:var(--font-mono);font-size:11px;
+  align-items:center;flex-wrap:wrap}
+.topbar-stat{display:flex;gap:5px;color:var(--grey-700);align-items:center}
+.topbar-stat .val{color:var(--ocean);font-weight:700;padding:2px 6px;border-radius:3px;background:var(--ocean-soft)}
+.topbar-stat .val.green{color:var(--green-bourgeon);background:#b8fec9}
+.topbar-stat .val.amber{color:#8a5e00;background:#ffe9b8}
+.topbar-stat .val.red{color:var(--red-marianne);background:var(--red-marianne-soft)}
+
+.app{display:grid;grid-template-columns:280px 1fr 340px;height:calc(100vh - 130px);overflow:hidden}
+
+.sidebar{background:var(--white);border-right:1px solid var(--grey-200);display:flex;flex-direction:column;overflow:hidden}
+.sb-head{padding:14px 16px;border-bottom:1px solid var(--grey-200);background:var(--grey-50)}
+.sb-title{font-size:12px;font-weight:700;color:var(--ocean);letter-spacing:.5px;
+  text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.sb-title::before{content:'';width:4px;height:14px;background:var(--red-marianne)}
+.sb-count{font-family:var(--font-mono);font-size:11px;color:var(--grey-500);margin-top:6px}
+.sb-search{padding:10px 14px;border-bottom:1px solid var(--grey-200)}
+.sb-search input{width:100%;background:var(--white);border:1px solid var(--grey-200);
+  border-radius:4px;color:var(--grey-900);padding:9px 12px;font-size:13px}
+.sb-search input:focus{outline:none;border-color:var(--ocean);box-shadow:0 0 0 2px var(--ocean-soft)}
+.sb-list{flex:1;overflow-y:auto;padding:8px}
+
+.source-item{background:var(--white);border:1px solid var(--grey-200);border-left:4px solid var(--ocean);
+  border-radius:4px;padding:10px 12px;margin-bottom:6px;cursor:pointer;transition:.15s}
+.source-item:hover{border-color:var(--ocean);background:var(--ocean-soft)}
+.source-item.active{background:var(--ocean-soft);border-left-color:var(--red-marianne)}
+.source-item.active .source-item-name{color:var(--ocean)}
+.source-item-h{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.source-item-icon{font-size:16px}
+.source-item-name{font-size:12px;font-weight:700;color:var(--grey-900);flex:1;line-height:1.3}
+.source-item-meta{display:flex;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--grey-500);margin-top:4px;flex-wrap:wrap}
+.source-item-count{background:var(--grey-100);padding:2px 6px;border-radius:3px;color:var(--grey-700);font-weight:600}
+
+.source-item[data-type="recueil"]{border-left-color:var(--blue-france)}
+.source-item[data-type="arrete"]{border-left-color:var(--yellow-tournesol)}
+.source-item[data-type="decision"]{border-left-color:var(--violet)}
+.source-item[data-type="special"]{border-left-color:var(--red-marianne)}
+.source-item[data-type="nominatif"]{border-left-color:var(--green-emeraude)}
+.source-item[data-type="autre"]{border-left-color:var(--grey-500)}
+
+.center{background:var(--grey-50);display:flex;flex-direction:column;overflow:hidden}
+.search-bar{padding:14px 16px;background:var(--white);border-bottom:1px solid var(--grey-200);
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.search-bar input[type=text]{flex:1;min-width:220px;border:1px solid var(--grey-200);
+  border-radius:4px;padding:11px 14px;font-size:14px}
+.search-bar input[type=text]:focus{outline:none;border-color:var(--ocean);box-shadow:0 0 0 2px var(--ocean-soft)}
+.search-bar select{border:1px solid var(--grey-200);border-radius:4px;padding:11px 12px;font-size:13px;
+  background:var(--white);cursor:pointer;max-width:230px}
+.search-bar select:focus{outline:none;border-color:var(--ocean)}
+.search-btn{background:var(--ocean);color:var(--white);border:1px solid var(--ocean);
+  font-size:13px;font-weight:700;padding:11px 20px;border-radius:4px;cursor:pointer;transition:.15s}
+.search-btn:hover{background:#0a6270}
+
+/* Filtres avancés */
+.advanced-filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 16px;
+  background:var(--grey-50);border-bottom:1px solid var(--grey-200);font-size:11px}
+.advanced-filters label{display:flex;align-items:center;gap:4px;color:var(--grey-700)}
+.advanced-filters input[type=date]{border:1px solid var(--grey-200);border-radius:3px;
+  padding:5px 8px;font-size:11px;font-family:var(--font-mono)}
+.advanced-filters select{border:1px solid var(--grey-200);border-radius:3px;padding:5px 8px;font-size:11px}
+
+/* Bascule vues */
+.view-tabs{display:flex;gap:0;background:var(--white);border-bottom:1px solid var(--grey-200);padding:0 16px}
+.view-tab{padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;color:var(--grey-500);
+  border-bottom:2px solid transparent;transition:.15s;background:none;border:none;font-family:inherit}
+.view-tab:hover{color:var(--ocean)}
+.view-tab.active{color:var(--ocean);border-bottom-color:var(--ocean)}
+.view-tab .count{font-family:var(--font-mono);font-size:10px;margin-left:4px;
+  background:var(--grey-100);padding:1px 5px;border-radius:8px;color:var(--grey-700)}
+.view-tab.active .count{background:var(--ocean-soft);color:var(--ocean)}
+.view-tab.alert .count{background:var(--red-marianne-soft);color:var(--red-marianne)}
+
+.pagination-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 14px;
+  background:var(--white);border-top:1px solid var(--grey-200);border-bottom:1px solid var(--grey-200)}
+.pagination-info{font-family:var(--font-mono);font-size:11px;color:var(--grey-700);font-weight:600}
+.pagination-info strong{color:var(--ocean)}
+.pagination-spacer{flex:1}
+.page-btn{background:var(--white);color:var(--grey-900);border:1px solid var(--grey-200);font-size:12px;
+  font-weight:600;padding:6px 12px;border-radius:4px;cursor:pointer;min-width:36px}
+.page-btn:hover:not(:disabled){border-color:var(--ocean);color:var(--ocean);background:var(--ocean-soft)}
+.page-btn:disabled{opacity:.4;cursor:not-allowed}
+.page-input{width:60px;text-align:center;padding:6px 8px;font-size:12px;font-family:var(--font-mono);
+  font-weight:700;border:1px solid var(--grey-200);border-radius:4px;color:var(--ocean)}
+.page-select{border:1px solid var(--grey-200);border-radius:4px;padding:6px 8px;font-size:12px}
+
+.results{flex:1;overflow-y:auto;padding:14px}
+
+.result-card{background:var(--white);border:1px solid var(--grey-200);border-left:4px solid var(--ocean);
+  border-radius:4px;padding:14px 16px;margin-bottom:10px;transition:.15s;cursor:pointer}
+.result-card:hover{border-color:var(--ocean);box-shadow:0 4px 12px rgba(13,122,138,.08);transform:translateX(2px)}
+.result-card.selected{border-color:var(--ocean);background:var(--ocean-soft);box-shadow:0 0 0 2px var(--ocean)}
+.result-card.duplicate{border-left-color:var(--red-marianne)}
+.result-card.type-recuum{border-left-color:var(--blue-france)}
+.result-card.type-arrete{border-left-color:var(--yellow-tournesol)}
+.result-card.type-decision{border-left-color:var(--violet)}
+.result-card.type-special{border-left-color:var(--red-marianne)}
+.result-card.type-nominatif{border-left-color:var(--green-emeraude)}
+.result-card.type-autre{border-left-color:var(--grey-500)}
+
+.rc-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.rc-title{font-size:14px;font-weight:700;color:var(--grey-900);flex:1;line-height:1.35;min-width:200px;word-break:break-word}
+.rc-badges{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.rc-badge{font-family:var(--font-mono);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;
+  text-transform:uppercase;white-space:nowrap;letter-spacing:.5px}
+.rc-badge.type-recuum{background:var(--blue-france-soft);color:var(--blue-france)}
+.rc-badge.type-arrete{background:#ffe9b8;color:#8a5e00}
+.rc-badge.type-decision{background:var(--violet-soft);color:var(--violet)}
+.rc-badge.type-special{background:var(--red-marianne);color:var(--white)}
+.rc-badge.type-nominatif{background:#b8fec9;color:#0d5726}
+.rc-badge.type-autre{background:var(--grey-100);color:var(--grey-700)}
+.rc-badge.dep{background:var(--grey-100);color:var(--grey-900);border:1px solid var(--grey-200)}
+.rc-badge.pref{background:var(--ocean);color:var(--white)}
+.rc-badge.region{background:var(--ocean-soft);color:var(--ocean);border:1px solid var(--ocean)}
+.rc-badge.annee{background:var(--grey-100);color:var(--grey-700)}
+.rc-badge.mois{background:var(--volcan-soft);color:var(--volcan)}
+.rc-badge.dup{background:var(--red-marianne);color:var(--white);animation:pulseRed 1.5s infinite}
+@keyframes pulseRed{0%,100%{opacity:1}50%{opacity:.6}}
+.rc-org{color:var(--grey-700);font-weight:600;font-size:12px;margin-bottom:6px;line-height:1.4}
+.rc-org .pref-name{color:var(--ocean);font-weight:700}
+.rc-meta{display:flex;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--grey-500);flex-wrap:wrap;margin-top:8px}
+.rc-meta .tag{background:var(--grey-50);padding:3px 8px;border-radius:3px;border:1px solid var(--grey-200);color:var(--grey-700)}
+.rc-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+
+.btn{padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;
+  border:1px solid;transition:.15s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
+.btn.primary{background:var(--ocean);color:var(--white);border-color:var(--ocean)}
+.btn.primary:hover{background:#0a6270}
+.btn.secondary{background:var(--white);color:var(--ocean);border-color:var(--ocean)}
+.btn.secondary:hover{background:var(--ocean-soft)}
+.btn.danger{background:var(--red-marianne);color:var(--white);border-color:var(--red-marianne)}
+.btn.danger:hover{background:#b8000c}
+.btn.ghost{background:var(--white);color:var(--grey-700);border-color:var(--grey-200)}
+.btn.ghost:hover{background:var(--grey-50);border-color:var(--grey-500)}
+.btn.disabled{opacity:.5;cursor:not-allowed;background:var(--grey-100);color:var(--grey-500);border-color:var(--grey-200)}
+
+.right{background:var(--white);border-left:1px solid var(--grey-200);display:flex;flex-direction:column;overflow:hidden}
+.rs-head{padding:14px 16px;border-bottom:1px solid var(--grey-200);background:var(--grey-50);
+  font-size:12px;font-weight:700;color:var(--ocean);letter-spacing:.5px;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px}
+.rs-head::before{content:'';width:4px;height:14px;background:var(--red-marianne)}
+.rs-body{flex:1;overflow-y:auto;padding:12px}
+
+.intel-panel{background:var(--white);border:1px solid var(--grey-200);border-radius:4px;margin-bottom:10px;overflow:hidden}
+.intel-head{padding:9px 12px;background:var(--grey-50);border-bottom:1px solid var(--grey-200);
+  font-size:11px;font-weight:700;color:var(--ocean);letter-spacing:.5px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:space-between}
+.intel-head .badge{font-family:var(--font-mono);font-size:10px;background:var(--ocean-soft);
+  color:var(--ocean);padding:1px 6px;border-radius:8px;font-weight:700}
+.intel-head .badge.red{background:var(--red-marianne-soft);color:var(--red-marianne)}
+.intel-body{padding:10px}
+.info-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--grey-100);font-size:12px}
+.info-row:last-child{border-bottom:none}
+.info-row .k{color:var(--grey-700)}
+.info-row .v{font-family:var(--font-mono);font-weight:700;color:var(--grey-900);text-align:right;max-width:60%}
+
+.bar-chart{display:flex;flex-direction:column;gap:6px}
+.bar-row{display:flex;align-items:center;gap:6px;font-size:11px}
+.bar-label{width:80px;font-family:var(--font-mono);font-weight:700;color:var(--grey-700);flex-shrink:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{flex:1;height:16px;background:var(--grey-100);border-radius:2px;overflow:hidden;position:relative}
+.bar-fill{height:100%;background:var(--ocean);transition:width .3s}
+.bar-fill.type-recuum{background:var(--blue-france)}
+.bar-fill.type-arrete{background:var(--yellow-tournesol)}
+.bar-fill.type-decision{background:var(--violet)}
+.bar-fill.type-special{background:var(--red-marianne)}
+.bar-fill.type-nominatif{background:var(--green-emeraude)}
+.bar-fill.type-autre{background:var(--grey-500)}
+.bar-value{font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--grey-700);flex-shrink:0;min-width:40px;text-align:right}
+
+/* ============================================================
+   MODALE PDF / DÉTAILS
+   ============================================================ */
+.modal-overlay{position:fixed;inset:0;background:rgba(30,30,30,.75);z-index:9999;
+  display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex;animation:fadeIn .2s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.modal{background:var(--white);border-radius:8px;width:100%;max-width:1100px;
+  height:90vh;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);animation:slideUp .25s ease-out}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+.modal-header{display:flex;align-items:center;gap:12px;padding:14px 18px;
+  background:var(--ocean);color:var(--white);flex-shrink:0}
+.modal-header .modal-title{flex:1;font-size:14px;font-weight:700;line-height:1.3;
+  overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.modal-close{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:var(--white);
+  width:32px;height:32px;border-radius:4px;cursor:pointer;font-size:18px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
+.modal-close:hover{background:rgba(255,255,255,.25)}
+
+.modal-tabs{display:flex;gap:0;background:var(--grey-50);border-bottom:1px solid var(--grey-200);
+  padding:0 18px;flex-shrink:0}
+.modal-tab{padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;color:var(--grey-500);
+  border-bottom:2px solid transparent;transition:.15s;background:none;border:none;font-family:inherit}
+.modal-tab:hover{color:var(--ocean)}
+.modal-tab.active{color:var(--ocean);border-bottom-color:var(--ocean)}
+
+.modal-body{flex:1;overflow:hidden;display:flex;flex-direction:column;background:var(--grey-50)}
+.modal-pane{display:none;flex:1;overflow:auto;padding:18px}
+.modal-pane.active{display:block}
+
+.pdf-frame{width:100%;height:100%;border:none;background:var(--white);
+  border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.pdf-toolbar{display:flex;gap:8px;padding:8px 12px;background:var(--white);
+  border-bottom:1px solid var(--grey-200);align-items:center;flex-wrap:wrap}
+.pdf-toolbar .spacer{flex:1}
+.pdf-toolbar a{text-decoration:none}
+
+.detail-grid{display:grid;grid-template-columns:140px 1fr;gap:8px 16px;font-size:12px;
+  background:var(--white);padding:16px;border-radius:6px;border:1px solid var(--grey-200)}
+.detail-grid dt{font-weight:700;color:var(--grey-700);font-family:var(--font-mono);font-size:11px;
+  text-transform:uppercase;letter-spacing:.5px;padding-top:2px}
+.detail-grid dd{color:var(--grey-900);word-break:break-word;line-height:1.5}
+.detail-grid dd a{color:var(--ocean);text-decoration:none;font-weight:600}
+.detail-grid dd a:hover{text-decoration:underline}
+.detail-grid dd code{font-family:var(--font-mono);font-size:11px;background:var(--grey-50);
+  padding:2px 6px;border-radius:3px;border:1px solid var(--grey-200)}
+
+/* ============================================================
+   ANALYSEUR DE DOUBLONS
+   ============================================================ */
+.dup-group{background:var(--white);border:1px solid var(--grey-200);border-left:4px solid var(--red-marianne);
+  border-radius:4px;padding:12px 16px;margin-bottom:12px}
+.dup-group-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.dup-group-title{font-size:13px;font-weight:700;color:var(--red-marianne);flex:1}
+.dup-group-count{font-family:var(--font-mono);font-size:10px;background:var(--red-marianne);
+  color:var(--white);padding:2px 8px;border-radius:10px;font-weight:700}
+.dup-group-reason{font-size:11px;color:var(--grey-500);font-family:var(--font-mono);margin-bottom:8px}
+.dup-item{display:flex;gap:10px;padding:8px 10px;background:var(--grey-50);border-radius:4px;
+  margin-bottom:6px;font-size:12px;align-items:flex-start}
+.dup-item-main{flex:1;min-width:0}
+.dup-item-title{font-weight:600;color:var(--grey-900);margin-bottom:3px;line-height:1.35;
+  overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.dup-item-meta{font-family:var(--font-mono);font-size:10px;color:var(--grey-500);display:flex;gap:10px;flex-wrap:wrap}
+.dup-item-meta .keep{color:var(--green-bourgeon);font-weight:700}
+.dup-item-meta .del{color:var(--red-marianne);font-weight:700}
+.dup-item-actions{display:flex;gap:4px;flex-shrink:0}
+.dup-item-actions .btn{padding:4px 8px;font-size:10px}
+
+.dup-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;
+  margin-bottom:16px}
+.dup-stat{background:var(--white);border:1px solid var(--grey-200);border-radius:6px;padding:14px;
+  text-align:center}
+.dup-stat .num{font-size:24px;font-weight:700;color:var(--red-marianne);font-family:var(--font-mono)}
+.dup-stat .lbl{font-size:11px;color:var(--grey-500);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+
+/* ============================================================
+   TOASTS
+   ============================================================ */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--ocean);color:var(--white);
+  padding:12px 18px;border-radius:6px;font-size:13px;font-weight:600;
+  box-shadow:0 8px 24px rgba(13,122,138,.25);z-index:10000;animation:slideIn .3s ease-out}
+.toast.success{background:var(--green-emeraude)}
+.toast.error{background:var(--red-marianne)}
+.toast.warn{background:var(--yellow-tournesol);color:var(--grey-900)}
+@keyframes slideIn{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+.empty,.loading-state{text-align:center;padding:60px 20px;color:var(--grey-500);font-size:14px}
+.spin{width:40px;height:40px;border:3px solid var(--grey-200);border-top-color:var(--ocean);
+  border-radius:50%;animation:sp .8s linear infinite;margin:0 auto 14px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.error-box{background:var(--red-marianne-soft);border:1px solid var(--red-marianne);border-left-width:4px;
+  color:var(--red-marianne);padding:14px;border-radius:4px;font-size:12px;margin-top:8px}
+
+.hero-flag{display:inline-block;font-size:18px;margin-right:6px;vertical-align:middle}
+
+@media (max-width:1100px){
+  .app{grid-template-columns:1fr;height:auto;overflow:visible}
+  .sidebar,.right{max-height:400px}
+}
+</style>
+</head>
+<body>
+
+<div class="marianne-band"></div>
+<div class="bloc-marque">
+  <div class="bloc-marque-logo">République<br>Française</div>
+  <div class="bloc-marque-devise"><em>Liberté</em><em>Égalité</em><em>Fraternité</em></div>
+  <div class="bloc-marque-zone">🇷🇪 Préfecture de La Réunion — Saint-Denis (974)</div>
+</div>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="dot" id="statusDot"></span>
+    <span class="hero-flag">🇷🇪</span>
+    RAA RÉUNION
+    <span class="sub">/ recueil des actes administratifs · 974</span>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-stat"><span>DATA</span><span class="val green" id="tbStatus">—</span></div>
+    <div class="topbar-stat"><span>ACTES</span><span class="val" id="tbTotal">—</span></div>
+    <div class="topbar-stat"><span>MOIS</span><span class="val" id="tbMois">—</span></div>
+    <div class="topbar-stat"><span>DOUBLONS</span><span class="val red" id="tbDup">—</span></div>
+    <div class="topbar-stat"><span>AFFICHÉS</span><span class="val amber" id="tbShown">—</span></div>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-head">
+      <div class="sb-title">🌋 Types & Mois</div>
+      <div class="sb-count" id="sbCount">—</div>
+    </div>
+    <div class="sb-search">
+      <input type="text" id="sourceSearch" placeholder="🔍 Filtrer mois / type…">
+    </div>
+    <div class="sb-list" id="sbList"></div>
+  </aside>
+
+  <main class="center">
+    <div class="search-bar">
+      <input type="text" id="queryInput" placeholder="🔍 Rechercher titre, n°, commune…">
+      <select id="moisSelect">
+        <option value="">📅 Tous les mois</option>
+      </select>
+      <select id="anneeSelect">
+        <option value="">📅 Toutes années</option>
+      </select>
+      <select id="typeSelect">
+        <option value="">🎯 Tous types</option>
+        <option value="recueil">📋 Recueils</option>
+        <option value="arrete">📜 Arrêtés</option>
+        <option value="decision">⚖️ Décisions</option>
+        <option value="special">⚡ Spéciaux</option>
+        <option value="nominatif">👤 Nominatifs</option>
+        <option value="autre">📁 Autres</option>
+      </select>
+      <select id="sortSelect">
+        <option value="recent">📅 Plus récents</option>
+        <option value="old">📅 Plus anciens</option>
+        <option value="mois">📆 Ordre du mois</option>
+        <option value="title">🔤 Titre A→Z</option>
+      </select>
+      <button class="search-btn" id="searchBtn">▶ RECHERCHER</button>
+    </div>
+
+    <div class="advanced-filters">
+      <label>📅 Du <input type="date" id="dateFrom"></label>
+      <label>Au <input type="date" id="dateTo"></label>
+      <label><input type="checkbox" id="onlyPdf"> Uniquement avec PDF</label>
+      <label><input type="checkbox" id="onlyDup"> Uniquement les doublons</label>
+      <span style="flex:1"></span>
+      <button class="btn ghost" id="resetAdvanced" style="padding:4px 10px;font-size:10px">✕ Effacer</button>
+    </div>
+
+    <div class="view-tabs">
+      <button class="view-tab active" data-view="list">📋 Liste <span class="count" id="tabListCount">0</span></button>
+      <button class="view-tab alert" data-view="duplicates">🔍 Doublons <span class="count" id="tabDupCount">0</span></button>
+    </div>
+
+    <div class="pagination-bar" id="paginationBar" hidden>
+      <span class="pagination-info" id="paginationInfo">—</span>
+      <span class="pagination-spacer"></span>
+      <button class="page-btn" id="pageFirst">⏮</button>
+      <button class="page-btn" id="pagePrev">←</button>
+      <input type="number" class="page-input" id="pageInput" min="1" value="1">
+      <span style="font-size:12px;color:var(--grey-500)" id="pageTotal">/ —</span>
+      <button class="page-btn" id="pageNext">→</button>
+      <button class="page-btn" id="pageLast">⏭</button>
+      <select class="page-select" id="pageSizeSelect">
+        <option value="25" selected>25 / page</option>
+        <option value="50">50 / page</option>
+        <option value="100">100 / page</option>
+      </select>
+    </div>
+
+    <div class="results" id="resultsArea">
+      <div class="loading-state"><div class="spin"></div>Chargement de json/raa_reunion.json…</div>
+    </div>
+  </main>
+
+  <aside class="right">
+    <div class="rs-head">Statistiques Réunion</div>
+    <div class="rs-body">
+      <div class="intel-panel">
+        <div class="intel-head">💚 ÉTAT GLOBAL</div>
+        <div class="intel-body">
+          <div class="info-row"><span class="k">Total actes</span><span class="v" id="ivTotal">—</span></div>
+          <div class="info-row"><span class="k">Années couvertes</span><span class="v" id="ivAnnees">—</span></div>
+          <div class="info-row"><span class="k">Mois distincts</span><span class="v" id="ivMois">—</span></div>
+          <div class="info-row"><span class="k">Avec PDF</span><span class="v" id="ivPdf">—</span></div>
+          <div class="info-row"><span class="k">Sans PDF</span><span class="v" id="ivNoPdf">—</span></div>
+          <div class="info-row"><span class="k">Dernière MAJ</span><span class="v" id="ivMaj">—</span></div>
+        </div>
+      </div>
+
+      <div class="intel-panel">
+        <div class="intel-head">
+          🔍 DOUBLONS DÉTECTÉS
+          <span class="badge red" id="dupBadge">0</span>
+        </div>
+        <div class="intel-body" id="dupSummary">
+          <div style="font-size:11px;color:var(--grey-500);text-align:center;padding:8px">
+            Analyse en cours…
+          </div>
+        </div>
+      </div>
+
+      <div class="intel-panel">
+        <div class="intel-head">📂 RÉPARTITION PAR TYPE</div>
+        <div class="intel-body">
+          <div class="info-row"><span class="k">📋 Recueils</span><span class="v" id="ivRecueil">—</span></div>
+          <div class="info-row"><span class="k">📜 Arrêtés</span><span class="v" id="ivArrete">—</span></div>
+          <div class="info-row"><span class="k">⚖️ Décisions</span><span class="v" id="ivDecision">—</span></div>
+          <div class="info-row"><span class="k">⚡ Spéciaux</span><span class="v" id="ivSpecial">—</span></div>
+          <div class="info-row"><span class="k">👤 Nominatifs</span><span class="v" id="ivNominatif">—</span></div>
+          <div class="info-row"><span class="k">📁 Autres</span><span class="v" id="ivAutre">—</span></div>
+        </div>
+      </div>
+
+      <div class="intel-panel">
+        <div class="intel-head">📊 GRAPHIQUE TYPES</div>
+        <div class="intel-body">
+          <div class="bar-chart" id="typeChart"></div>
+        </div>
+      </div>
+
+      <div class="intel-panel">
+        <div class="intel-head">📅 ACTIVITÉ PAR ANNÉE</div>
+        <div class="intel-body">
+          <div class="bar-chart" id="yearChart"></div>
+        </div>
+      </div>
+
+      <div class="intel-panel">
+        <div class="intel-head">⚡ ACTIONS</div>
+        <div class="intel-body">
+          <button class="btn primary" id="exportCsv" style="width:100%;justify-content:center;margin-bottom:6px">
+            📥 Export CSV résultats
+          </button>
+          <button class="btn secondary" id="copyLinks" style="width:100%;justify-content:center;margin-bottom:6px">
+            📋 Copier les URLs PDF
+          </button>
+          <button class="btn ghost" id="resetFilters" style="width:100%;justify-content:center;margin-bottom:6px">
+            🔄 Réinitialiser filtres
+          </button>
+          <a class="btn ghost" href="https://www.reunion.gouv.fr/Publications/Publications-administratives-et-legales/Recueil-des-actes-administratifs-RAA/"
+             target="_blank" rel="noopener" style="width:100%;justify-content:center">
+            🌐 Site officiel RAA 974
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================
+     MODALE PDF / DÉTAILS
+     ============================================================ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">—</div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-pane="pdf">📖 PDF</button>
+      <button class="modal-tab" data-pane="details">📋 Détails</button>
+      <button class="modal-tab" data-pane="raw">🔧 JSON brut</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-pane active" id="panePdf" style="padding:0;display:flex;flex-direction:column">
+        <div class="pdf-toolbar">
+          <a class="btn primary" id="pdfOpenTab" href="#" target="_blank" rel="noopener">🌐 Ouvrir dans un onglet</a>
+          <a class="btn secondary" id="pdfDownload" href="#" download>⬇️ Télécharger</a>
+          <button class="btn ghost" id="pdfCopyUrl">📋 Copier l'URL</button>
+          <span class="spacer"></span>
+          <span style="font-family:var(--font-mono);font-size:10px;color:var(--grey-500)" id="pdfInfo"></span>
+        </div>
+        <iframe class="pdf-frame" id="pdfFrame" src="about:blank"></iframe>
+      </div>
+      <div class="modal-pane" id="paneDetails">
+        <dl class="detail-grid" id="detailGrid"></dl>
+      </div>
+      <div class="modal-pane" id="paneRaw">
+        <pre style="background:var(--grey-900);color:#a5d6a7;padding:16px;border-radius:6px;
+                    font-family:var(--font-mono);font-size:11px;overflow:auto;line-height:1.6"
+             id="rawJson"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const DATA_URL = 'json/raa_reunion.json';
+const DEBOUNCE_MS = 150;
+
+const TYPE_META = {
+  recueil:   { icon:'📋', label:'Recueil',    color:'recueil' },
+  arrete:    { icon:'📜', label:'Arrêté',     color:'arrete' },
+  decision:  { icon:'⚖️', label:'Décision',   color:'decision' },
+  special:   { icon:'⚡', label:'Spécial',    color:'special' },
+  nominatif: { icon:'👤', label:'Nominatif',  color:'nominatif' },
+  autre:     { icon:'📁', label:'Autre',      color:'autre' }
+};
+const TYPE_ORDER = ['recueil','arrete','decision','special','nominatif','autre'];
+
+const MOIS_FR = [
+  'JANVIER','FEVRIER','MARS','AVRIL','MAI','JUIN',
+  'JUILLET','AOUT','SEPTEMBRE','OCTOBRE','NOVEMBRE','DECEMBRE'
+];
+const MOIS_LABEL = {
+  JANVIER:'Janvier',FEVRIER:'Février',MARS:'Mars',AVRIL:'Avril',MAI:'Mai',JUIN:'Juin',
+  JUILLET:'Juillet',AOUT:'Août',SEPTEMBRE:'Septembre',OCTOBRE:'Octobre',NOVEMBRE:'Novembre',DECEMBRE:'Décembre'
+};
+
+// ============================================================
+// ÉTAT
+// ============================================================
+const state = {
+  all: [],
+  filtered: [],
+  currentPage: 1,
+  pageSize: 25,
+  totalResults: 0,
+  activeType: null,
+  currentPageItems: [],
+  currentView: 'list',       // 'list' | 'duplicates'
+  duplicates: [],            // groupes de doublons
+  duplicateIds: new Set(),   // ids concernés
+  selectedItem: null
+};
+
+// ============================================================
+// HELPERS
+// ============================================================
+function escapeHtml(s){
+  return String(s ?? '').replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function formatNumber(n){
+  if (n === null || n === undefined || isNaN(n)) return '—';
+  return Number(n).toLocaleString('fr-FR');
+}
+function formatDate(iso){
+  if (!iso) return '—';
+  try {
+    const d = new Date(iso);
+    if (isNaN(d)) return iso;
+    return d.toLocaleDateString('fr-FR', {day:'2-digit',month:'short',year:'numeric'});
+  } catch(e){ return iso; }
+}
+function parseDisplayDate(d){
+  if (!d) return '—';
+  const m = String(d).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return d;
+  const [_, y, mo, dd] = m;
+  if (dd === '00') return `01/${mo}/${y}`;
+  return `${dd}/${mo}/${y}`;
+}
+function debounce(fn, ms){
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+function showToast(msg, type = 'info'){
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; }, 2500);
+  setTimeout(() => t.remove(), 3000);
+}
+async function copyText(txt){
+  try {
+    if (navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(txt);
+      return true;
+    }
+  } catch(e){}
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy');
+    ta.remove(); return ok;
+  } catch(e){ return false; }
+}
+
+// ============================================================
+// NORMALISATION POUR DOUBLONS
+// ============================================================
+function normalizeTitle(t){
+  return String(t || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // enlever accents
+    .replace(/n[°o]\s*/gi, 'n ')                        // n° / no → n
+    .replace(/\b(arrete|arrêté|decision|décision|recueil|avis)\b/gi, '')
+    .replace(/[^a-z0-9]+/g, ' ')                        // ponctuation → espace
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 200);
+}
+
+function extractNumero(t){
+  const m = String(t || '').match(/n[°o]\s*([0-9]+[\-\/]?[0-9A-Z]*)/i);
+  return m ? m[1].toUpperCase() : null;
+}
+
+// ============================================================
+// DÉTECTION DE DOUBLONS
+// ============================================================
+function detectDuplicates(items){
+  const groups = [];
+  const used = new Set();
+
+  // 1) Doublons exacts par URL
+  const byUrl = new Map();
+  items.forEach(d => {
+    if (!d.url) return;
+    if (!byUrl.has(d.url)) byUrl.set(d.url, []);
+    byUrl.get(d.url).push(d);
+  });
+  byUrl.forEach((arr, url) => {
+    if (arr.length > 1){
+      groups.push({ reason: 'URL identique', key: url, items: arr });
+      arr.forEach(d => used.add(d.id));
+    }
+  });
+
+  // 2) Doublons par titre normalisé
+  const byTitle = new Map();
+  items.forEach(d => {
+    const key = normalizeTitle(d.titre);
+    if (key.length < 20) return; // trop court = risque de faux positif
+    if (!byTitle.has(key)) byTitle.set(key, []);
+    byTitle.get(key).push(d);
+  });
+  byTitle.forEach((arr, key) => {
+    if (arr.length > 1 && arr.some(d => !used.has(d.id))){
+      groups.push({ reason: 'Titre identique (normalisé)', key, items: arr });
+      arr.forEach(d => used.add(d.id));
+    }
+  });
+
+  // 3) Doublons par numéro + mois (contexte proche)
+  const byNum = new Map();
+  items.forEach(d => {
+    const num = extractNumero(d.titre);
+    if (!num) return;
+    const key = `${num}|${d.annee}|${d.mois}`;
+    if (!byNum.has(key)) byNum.set(key, []);
+    byNum.get(key).push(d);
+  });
+  byNum.forEach((arr, key) => {
+    if (arr.length > 1 && arr.some(d => !used.has(d.id))){
+      groups.push({ reason: `Numéro + mois identiques (${key})`, key, items: arr });
+      arr.forEach(d => used.add(d.id));
+    }
+  });
+
+  // 4) Doublons quasi-identiques (titres très proches, même mois, même type)
+  const byMonth = new Map();
+  items.forEach(d => {
+    const key = `${d.annee}|${d.mois}|${d.type}`;
+    if (!byMonth.has(key)) byMonth.set(key, []);
+    byMonth.get(key).push(d);
+  });
+  byMonth.forEach((arr, key) => {
+    if (arr.length < 2) return;
+    for (let i = 0; i < arr.length; i++){
+      for (let j = i + 1; j < arr.length; j++){
+        const a = arr[i], b = arr[j];
+        if (used.has(a.id) && used.has(b.id)) continue;
+        const sim = similarity(normalizeTitle(a.titre), normalizeTitle(b.titre));
+        if (sim > 0.92){
+          groups.push({ reason: `Titres très similaires (${Math.round(sim*100)}%)`, key, items: [a, b] });
+          used.add(a.id); used.add(b.id);
+        }
+      }
+    }
+  });
+
+  return groups;
+}
+
+// Similarité de Levenshtein normalisée (0..1)
+function similarity(a, b){
+  if (a === b) return 1;
+  if (!a || !b) return 0;
+  const len = Math.max(a.length, b.length);
+  if (len === 0) return 1;
+  return 1 - levenshtein(a, b) / len;
+}
+
+function levenshtein(a, b){
+  const m = a.length, n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  // Optimisation : une seule ligne
+  let prev = new Array(n + 1);
+  let curr = new Array(n + 1);
+  for (let j = 0; j <= n; j++) prev[j] = j;
+  for (let i = 1; i <= m; i++){
+    curr[0] = i;
+    for (let j = 1; j <= n; j++){
+      const cost = a[i-1] === b[j-1] ? 0 : 1;
+      curr[j] = Math.min(prev[j] + 1, curr[j-1] + 1, prev[j-1] + cost);
+    }
+    [prev, curr] = [curr, prev];
+  }
+  return prev[n];
+}
+
+// ============================================================
+// CHARGEMENT
+// ============================================================
+async function loadData(){
+  const dot = document.getElementById('statusDot');
+  try {
+    const r = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const json = await r.json();
+
+    let results;
+    if (Array.isArray(json)) results = json;
+    else if (json.results && Array.isArray(json.results)) results = json.results;
+    else if (json.data && Array.isArray(json.data)) results = json.data;
+    else throw new Error('Format invalide : "results" manquant');
+
+    results = results.filter(d => !d.departement || d.departement === '974');
+    results.forEach(d => {
+      d.prefecture = d.prefecture || 'Saint-Denis';
+      d.nom_departement = d.nom_departement || 'La Réunion';
+      d.region = d.region || 'La Réunion';
+      d.departement = '974';
+    });
+
+    state.all = results;
+    dot.classList.add('ready');
+
+    document.getElementById('tbStatus').textContent = 'OK';
+    document.getElementById('tbStatus').className = 'val green';
+    document.getElementById('tbTotal').textContent = formatNumber(results.length);
+
+    const annees = [...new Set(results.map(d => d.annee).filter(Boolean))].sort((a,b) => b-a);
+    const moisSet = new Set(results.map(d => `${d.annee}-${d.mois}`).filter(Boolean));
+    const withPdf = results.filter(d => d.url).length;
+
+    const byType = { recueil:0, arrete:0, decision:0, special:0, nominatif:0, autre:0 };
+    results.forEach(d => { if (byType[d.type] !== undefined) byType[d.type]++; });
+
+    document.getElementById('tbMois').textContent = moisSet.size;
+    document.getElementById('ivTotal').textContent = formatNumber(results.length);
+    document.getElementById('ivAnnees').textContent = annees.join(', ') || '—';
+    document.getElementById('ivMois').textContent = moisSet.size;
+    document.getElementById('ivPdf').textContent = formatNumber(withPdf);
+    document.getElementById('ivNoPdf').textContent = formatNumber(results.length - withPdf);
+    document.getElementById('ivMaj').textContent = json.generated_at ? formatDate(json.generated_at) : '—';
+
+    document.getElementById('ivRecueil').textContent   = formatNumber(byType.recueil);
+    document.getElementById('ivArrete').textContent    = formatNumber(byType.arrete);
+    document.getElementById('ivDecision').textContent  = formatNumber(byType.decision);
+    document.getElementById('ivSpecial').textContent   = formatNumber(byType.special);
+    document.getElementById('ivNominatif').textContent = formatNumber(byType.nominatif);
+    document.getElementById('ivAutre').textContent     = formatNumber(byType.autre);
+
+    renderTypeChart(byType);
+    renderYearChart(results);
+
+    // Détection doublons
+    logStatus('Détection des doublons…');
+    const dup = detectDuplicates(results);
+    state.duplicates = dup;
+    state.duplicateIds = new Set();
+    dup.forEach(g => g.items.forEach(d => state.duplicateIds.add(d.id)));
+    document.getElementById('tbDup').textContent = state.duplicateIds.size;
+    document.getElementById('tabDupCount').textContent = dup.length;
+    document.getElementById('dupBadge').textContent = dup.length;
+    renderDupSummary(dup);
+
+    populateMoisSelect(results);
+    populateAnneeSelect(annees);
+    renderCategories();
+
+    runSearch(1);
+  } catch(err){
+    dot.classList.add('offline');
+    document.getElementById('tbStatus').textContent = 'ERREUR';
+    document.getElementById('tbStatus').className = 'val red';
+    document.getElementById('resultsArea').innerHTML = `
+      <div class="error-box">
+        <strong>❌ Impossible de charger ${DATA_URL}</strong><br><br>
+        Erreur : <code>${escapeHtml(err.message)}</code><br><br>
+        <strong>Solutions :</strong><br>
+        1. Générez d'abord le fichier avec <code>npm run scrape</code>.<br>
+        2. Vérifiez que <code>json/raa_reunion.json</code> existe.<br>
+        3. Lancez un serveur local : <code>npx http-server -p 8000 -c-1</code><br>
+        4. <strong>N'ouvrez pas le HTML en double-clic</strong> (file://).
+      </div>
+    `;
+  }
+}
+
+function logStatus(msg){
+  console.log('[Dashboard]', msg);
+}
+
+// ============================================================
+// RÉSUMÉ DOUBLONS
+// ============================================================
+function renderDupSummary(groups){
+  const el = document.getElementById('dupSummary');
+  if (!groups.length){
+    el.innerHTML = `
+      <div style="text-align:center;padding:10px">
+        <div style="font-size:28px">✅</div>
+        <div style="font-weight:700;color:var(--green-bourgeon);margin-top:6px">Aucun doublon</div>
+        <div style="font-size:11px;color:var(--grey-500);margin-top:4px">
+          Les ${formatNumber(state.all.length)} actes sont uniques
+        </div>
+      </div>`;
+    return;
+  }
+
+  const totalItems = groups.reduce((s, g) => s + g.items.length, 0);
+  const byReason = {};
+  groups.forEach(g => {
+    byReason[g.reason] = (byReason[g.reason] || 0) + 1;
+  });
+
+  el.innerHTML = `
+    <div class="dup-stat" style="margin-bottom:10px">
+      <div class="num">${groups.length}</div>
+      <div class="lbl">Groupes de doublons</div>
+    </div>
+    <div class="dup-stat" style="margin-bottom:10px">
+      <div class="num">${totalItems}</div>
+      <div class="lbl">Actes concernés</div>
+    </div>
+    ${Object.entries(byReason).map(([r, n]) => `
+      <div class="info-row">
+        <span class="k">${escapeHtml(r)}</span>
+        <span class="v">${n}</span>
+      </div>
+    `).join('')}
+    <button class="btn danger" id="gotoDupTab" style="width:100%;justify-content:center;margin-top:10px">
+      🔍 Voir les doublons
+    </button>
+  `;
+  const btn = document.getElementById('gotoDupTab');
+  if (btn) btn.addEventListener('click', () => switchView('duplicates'));
+}
+
+// ============================================================
+// VUES (LISTE / DOUBLONS)
+// ============================================================
+function switchView(view){
+  state.currentView = view;
+  document.querySelectorAll('.view-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.view === view);
+  });
+  document.getElementById('paginationBar').hidden = (view !== 'list');
+  if (view === 'list') runSearch(1);
+  else renderDuplicates();
+}
+
+function renderDuplicates(){
+  const area = document.getElementById('resultsArea');
+  const groups = state.duplicates;
+  if (!groups.length){
+    area.innerHTML = `<div class="empty">
+      <div style="font-size:48px;margin-bottom:10px">✅</div>
+      <strong style="font-size:16px;color:var(--green-bourgeon)">Aucun doublon détecté</strong><br>
+      <span style="color:var(--grey-500);font-size:12px">Tous les actes sont uniques dans la base.</span>
+    </div>`;
+    return;
+  }
+
+  area.innerHTML = `
+    <div class="dup-summary">
+      <div class="dup-stat">
+        <div class="num">${groups.length}</div>
+        <div class="lbl">Groupes</div>
+      </div>
+      <div class="dup-stat">
+        <div class="num">${groups.reduce((s,g)=>s+g.items.length,0)}</div>
+        <div class="lbl">Actes concernés</div>
+      </div>
+    </div>
+    ${groups.map((g, gi) => `
+      <div class="dup-group">
+        <div class="dup-group-head">
+          <span class="dup-group-title">🔍 Groupe #${gi+1}</span>
+          <span class="dup-group-count">${g.items.length} actes</span>
+        </div>
+        <div class="dup-group-reason">Cause : ${escapeHtml(g.reason)}</div>
+        ${g.items.map((d, idx) => `
+          <div class="dup-item">
+            <div class="dup-item-main">
+              <div class="dup-item-title">${escapeHtml(d.titre)}</div>
+              <div class="dup-item-meta">
+                <span>📅 ${escapeHtml(MOIS_LABEL[d.mois]||d.mois||'')} ${escapeHtml(String(d.annee||''))}</span>
+                ${d.numero ? `<span>N° ${escapeHtml(d.numero)}</span>` : ''}
+                <span class="keep">✓ à conserver</span>
+                ${idx > 0 ? `<span class="del">✗ doublon probable</span>` : ''}
+              </div>
+            </div>
+            <div class="dup-item-actions">
+              <button class="btn ghost" data-open="${escapeHtml(d.id)}" title="Voir">👁</button>
+              ${d.url ? `<a class="btn ghost" href="${escapeHtml(d.url)}" target="_blank" title="PDF">📄</a>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `).join('')}
+  `;
+
+  area.querySelectorAll('[data-open]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const id = btn.dataset.open;
+      const item = state.all.find(x => x.id === id);
+      if (item) openModal(item);
+    });
+  });
+}
+
+// ============================================================
+// SIDEBAR : TYPES + MOIS
+// ============================================================
+function renderCategories(){
+  const search = (document.getElementById('sourceSearch').value || '').toLowerCase().trim();
+  const list = document.getElementById('sbList');
+
+  if (search.length > 0){
+    const mois = {};
+    state.all.forEach(d => {
+      const key = `${d.annee}-${d.mois}`;
+      if ((d.mois || '').toLowerCase().includes(search) || String(d.annee).includes(search)){
+        mois[key] = (mois[key] || 0) + 1;
+      }
+    });
+    const entries = Object.entries(mois).sort(([a],[b]) => b.localeCompare(a));
+    document.getElementById('sbCount').textContent = `${entries.length} mois trouvé(s)`;
+    list.innerHTML = entries.map(([key, n]) => {
+      const [annee, mois] = key.split('-');
+      return `
+        <div class="source-item" data-mois="${escapeHtml(mois)}" data-annee="${escapeHtml(annee)}">
+          <div class="source-item-h">
+            <span class="source-item-icon">📅</span>
+            <span class="source-item-name">${escapeHtml(MOIS_LABEL[mois] || mois)} ${escapeHtml(annee)}</span>
+          </div>
+          <div class="source-item-meta">
+            <span class="source-item-count">${n} actes</span>
+          </div>
+        </div>
+      `;
+    }).join('') || '<div style="padding:20px;text-align:center;color:var(--grey-500)">Aucun mois</div>';
+
+    list.querySelectorAll('[data-mois]').forEach(el => {
+      el.addEventListener('click', () => {
+        document.getElementById('moisSelect').value = el.dataset.mois;
+        document.getElementById('anneeSelect').value = el.dataset.annee;
+        document.getElementById('sourceSearch').value = '';
+        if (state.currentView !== 'list') switchView('list');
+        runSearch(1);
+        renderCategories();
+      });
+    });
+    return;
+  }
+
+  const counts = { recueil:0, arrete:0, decision:0, special:0, nominatif:0, autre:0 };
+  state.all.forEach(d => { if (counts[d.type] !== undefined) counts[d.type]++; });
+
+  const moisCounts = {};
+  state.all.forEach(d => {
+    const key = `${d.annee}-${d.mois}`;
+    moisCounts[key] = (moisCounts[key] || 0) + 1;
+  });
+  const topMois = Object.entries(moisCounts)
+    .sort(([a],[b]) => b.localeCompare(a))
+    .slice(0, 8);
+
+  document.getElementById('sbCount').textContent =
+    `${formatNumber(state.all.length)} actes · ${Object.keys(moisCounts).length} mois`;
+
+  list.innerHTML = `
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--grey-500);
+                padding:6px 4px;text-transform:uppercase;letter-spacing:.5px">Types</div>
+    ${TYPE_ORDER.map(id => {
+      const meta = TYPE_META[id];
+      return `
+        <div class="source-item ${state.activeType === id ? 'active' : ''}" data-type="${id}">
+          <div class="source-item-h">
+            <span class="source-item-icon">${meta.icon}</span>
+            <span class="source-item-name">${meta.label}</span>
+          </div>
+          <div class="source-item-meta">
+            <span class="source-item-count">${formatNumber(counts[id])}</span>
+            <span>${state.activeType === id ? '● ACTIF' : 'Cliquer'}</span>
+          </div>
+        </div>
+      `;
+    }).join('')}
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--grey-500);
+                padding:10px 4px 6px;text-transform:uppercase;letter-spacing:.5px">Derniers mois</div>
+    ${topMois.map(([key, n]) => {
+      const [annee, mois] = key.split('-');
+      return `
+        <div class="source-item" data-mois="${escapeHtml(mois)}" data-annee="${escapeHtml(annee)}"
+             style="border-left-color:var(--volcan)">
+          <div class="source-item-h">
+            <span class="source-item-icon">📅</span>
+            <span class="source-item-name">${escapeHtml(MOIS_LABEL[mois] || mois)} ${escapeHtml(annee)}</span>
+          </div>
+          <div class="source-item-meta">
+            <span class="source-item-count">${formatNumber(n)}</span>
+            <span>actes</span>
+          </div>
+        </div>
+      `;
+    }).join('')}
+  `;
+
+  list.querySelectorAll('[data-type]').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.type;
+      state.activeType = (state.activeType === id) ? null : id;
+      document.getElementById('typeSelect').value = state.activeType || '';
+      renderCategories();
+      if (state.currentView !== 'list') switchView('list');
+      runSearch(1);
+    });
+  });
+  list.querySelectorAll('[data-mois]').forEach(el => {
+    el.addEventListener('click', () => {
+      document.getElementById('moisSelect').value = el.dataset.mois;
+      document.getElementById('anneeSelect').value = el.dataset.annee;
+      if (state.currentView !== 'list') switchView('list');
+      runSearch(1);
+    });
+  });
+}
+
+// ============================================================
+// CHARTS
+// ============================================================
+function renderTypeChart(byType){
+  const el = document.getElementById('typeChart');
+  const entries = TYPE_ORDER.map(t => [t, byType[t] || 0]);
+  const max = Math.max(...entries.map(([,v]) => v), 1);
+  el.innerHTML = entries.map(([t, v]) => {
+    const meta = TYPE_META[t];
+    return `
+      <div class="bar-row">
+        <span class="bar-label">${meta.icon} ${meta.label}</span>
+        <div class="bar-track"><div class="bar-fill type-${t}" style="width:${(v/max*100)}%"></div></div>
+        <span class="bar-value">${formatNumber(v)}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderYearChart(results){
+  const counts = {};
+  results.forEach(d => {
+    if (!d.annee) return;
+    counts[d.annee] = (counts[d.annee] || 0) + 1;
+  });
+  const entries = Object.entries(counts).sort(([a],[b]) => b - a);
+  const max = entries.length ? Math.max(...entries.map(([,v]) => v)) : 1;
+  const el = document.getElementById('yearChart');
+  el.innerHTML = entries.map(([annee, n]) => `
+    <div class="bar-row">
+      <span class="bar-label">📅 ${escapeHtml(annee)}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${(n/max*100)}%"></div></div>
+      <span class="bar-value">${formatNumber(n)}</span>
+    </div>
+  `).join('') || '<div style="color:var(--grey-500);font-size:11px">Aucune donnée</div>';
+}
+
+// ============================================================
+// SELECTEURS
+// ============================================================
+function populateMoisSelect(results){
+  const sel = document.getElementById('moisSelect');
+  const moisPresent = new Set(results.map(d => d.mois).filter(Boolean));
+  const ordered = MOIS_FR.filter(m => moisPresent.has(m));
+  sel.innerHTML = '<option value="">📅 Tous les mois</option>' +
+    ordered.map(m => `<option value="${m}">${MOIS_LABEL[m] || m}</option>`).join('');
+}
+
+function populateAnneeSelect(annees){
+  const sel = document.getElementById('anneeSelect');
+  sel.innerHTML = '<option value="">📅 Toutes années</option>' +
+    annees.map(y => `<option value="${y}">${y}</option>`).join('');
+}
+
+// ============================================================
+// RECHERCHE
+// ============================================================
+function runSearch(page = 1){
+  const q = document.getElementById('queryInput').value.trim().toLowerCase();
+  const mois = document.getElementById('moisSelect').value;
+  const annee = document.getElementById('anneeSelect').value;
+  const type = document.getElementById('typeSelect').value;
+  const sort = document.getElementById('sortSelect').value;
+  const dateFrom = document.getElementById('dateFrom').value;
+  const dateTo = document.getElementById('dateTo').value;
+  const onlyPdf = document.getElementById('onlyPdf').checked;
+  const onlyDup = document.getElementById('onlyDup').checked;
+
+  state.currentPage = page;
+  let list = state.all;
+
+  if (mois) list = list.filter(d => d.mois === mois);
+  if (annee) list = list.filter(d => String(d.annee) === annee);
+  if (type) list = list.filter(d => d.type === type);
+  if (onlyPdf) list = list.filter(d => d.url);
+  if (onlyDup) list = list.filter(d => state.duplicateIds.has(d.id));
+  if (dateFrom) list = list.filter(d => d.date_publication && d.date_publication >= dateFrom);
+  if (dateTo) list = list.filter(d => d.date_publication && d.date_publication <= dateTo);
+
+  if (q){
+    list = list.filter(d =>
+      (d.titre || '').toLowerCase().includes(q) ||
+      (d.numero || '').toLowerCase().includes(q) ||
+      (d.mois || '').toLowerCase().includes(q) ||
+      (d.url || '').toLowerCase().includes(q)
+    );
+  }
+
+  const collator = new Intl.Collator('fr');
+  if (sort === 'recent'){
+    list = [...list].sort((a,b) => {
+      const da = a.date_publication || `${a.annee}-${String(MOIS_FR.indexOf(a.mois)+1).padStart(2,'0')}-00`;
+      const db = b.date_publication || `${b.annee}-${String(MOIS_FR.indexOf(b.mois)+1).padStart(2,'0')}-00`;
+      return db.localeCompare(da);
+    });
+  } else if (sort === 'old'){
+    list = [...list].sort((a,b) => {
+      const da = a.date_publication || `${a.annee}-00-00`;
+      const db = b.date_publication || `${b.annee}-00-00`;
+      return da.localeCompare(db);
+    });
+  } else if (sort === 'mois'){
+    list = [...list].sort((a,b) => {
+      const ma = MOIS_FR.indexOf(a.mois), mb = MOIS_FR.indexOf(b.mois);
+      if (a.annee !== b.annee) return (b.annee || 0) - (a.annee || 0);
+      return ma - mb;
+    });
+  } else if (sort === 'title'){
+    list = [...list].sort((a,b) => collator.compare(a.titre || '', b.titre || ''));
+  }
+
+  state.filtered = list;
+  state.totalResults = list.length;
+  document.getElementById('tbShown').textContent = formatNumber(list.length);
+  document.getElementById('tabListCount').textContent = formatNumber(list.length);
+
+  const totalPages = Math.max(1, Math.ceil(list.length / state.pageSize));
+  const current = Math.min(Math.max(1, page), totalPages);
+  state.currentPage = current;
+
+  const startIdx = (current - 1) * state.pageSize;
+  const pageItems = list.slice(startIdx, startIdx + state.pageSize);
+  state.currentPageItems = pageItems;
+
+  renderResults(pageItems);
+  updatePaginationUI(totalPages, current);
+  document.getElementById('resultsArea').scrollTop = 0;
+}
+
+// ============================================================
+// RENDU DES RÉSULTATS
+// ============================================================
+function renderResults(items){
+  const area = document.getElementById('resultsArea');
+  if (!items.length){
+    area.innerHTML = `<div class="empty">
+      <div style="font-size:48px;margin-bottom:10px">🔍</div>
+      Aucun acte ne correspond à vos critères.<br>
+      <button class="btn ghost" onclick="document.getElementById('resetFilters').click()" style="margin-top:14px">
+        🔄 Réinitialiser les filtres
+      </button>
+    </div>`;
+    return;
+  }
+
+  area.innerHTML = items.map(d => {
+    const meta = TYPE_META[d.type] || { icon:'📁', label: d.type || 'Autre' };
+    const moisLabel = MOIS_LABEL[d.mois] || d.mois || '';
+    const hasPdf = !!d.url;
+    const isDup = state.duplicateIds.has(d.id);
+    return `
+      <article class="result-card type-${escapeHtml(d.type)} ${isDup ? 'duplicate' : ''}" data-id="${escapeHtml(d.id)}">
+        <div class="rc-head">
+          <div class="rc-title">${escapeHtml(d.titre || '(sans titre)')}</div>
+          <div class="rc-badges">
+            <span class="rc-badge type-${escapeHtml(d.type)}">${meta.icon} ${escapeHtml(meta.label)}</span>
+            <span class="rc-badge pref">🇷🇪 Saint-Denis</span>
+            <span class="rc-badge dep">📍 974</span>
+            ${moisLabel ? `<span class="rc-badge mois">📅 ${escapeHtml(moisLabel)} ${escapeHtml(String(d.annee||''))}</span>` : ''}
+            ${isDup ? `<span class="rc-badge dup">🔍 DOUBLON</span>` : ''}
+            ${!hasPdf ? `<span class="rc-badge autre">📄 Sans PDF</span>` : ''}
+          </div>
+        </div>
+        <div class="rc-org">
+          🏛️ <span class="pref-name">Préfecture de La Réunion</span>
+          · Saint-Denis (974)
+          ${d.numero ? ` · N° <strong>${escapeHtml(d.numero)}</strong>` : ''}
+        </div>
+        <div class="rc-meta">
+          ${d.date_publication ? `<span class="tag">📅 Publié le ${escapeHtml(parseDisplayDate(d.date_publication))}</span>` : ''}
+          ${d.mois ? `<span class="tag">📆 ${escapeHtml(moisLabel)} ${escapeHtml(String(d.annee||''))}</span>` : ''}
+        </div>
+        <div class="rc-actions">
+          ${hasPdf
+            ? `<button class="btn primary" data-pdf="${escapeHtml(d.id)}">📖 Lire le PDF</button>
+               <button class="btn secondary" data-details="${escapeHtml(d.id)}">📋 Détails</button>
+               <button class="btn ghost" data-copy="${escapeHtml(d.url)}">📋 URL</button>`
+            : `<button class="btn secondary" data-details="${escapeHtml(d.id)}">📋 Détails</button>
+               <span class="btn disabled">📄 Sans PDF</span>`}
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  area.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const ok = await copyText(btn.dataset.copy);
+      showToast(ok ? '📋 URL copiée' : '❌ Impossible de copier', ok ? 'success' : 'error');
+    });
+  });
+  area.querySelectorAll('[data-pdf]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const item = state.all.find(x => x.id === btn.dataset.pdf);
+      if (item) openModal(item, 'pdf');
+    });
+  });
+  area.querySelectorAll('[data-details]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const item = state.all.find(x => x.id === btn.dataset.details);
+      if (item) openModal(item, 'details');
+    });
+  });
+  area.querySelectorAll('.result-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('button, a')) return;
+      const item = state.all.find(x => x.id === card.dataset.id);
+      if (item) openModal(item, item.url ? 'pdf' : 'details');
+    });
+  });
+}
+
+// ============================================================
+// MODALE : PDF / DÉTAILS / JSON
+// ============================================================
+function openModal(item, pane = 'pdf'){
+  state.selectedItem = item;
+  const overlay = document.getElementById('modalOverlay');
+  const title = document.getElementById('modalTitle');
+  title.textContent = item.titre || '(sans titre)';
+
+  // PDF
+  const iframe = document.getElementById('pdfFrame');
+  const info = document.getElementById('pdfInfo');
+  const openTab = document.getElementById('pdfOpenTab');
+  const dl = document.getElementById('pdfDownload');
+  const copyUrl = document.getElementById('pdfCopyUrl');
+
+  if (item.url){
+    iframe.src = item.url;
+    openTab.href = item.url;
+    dl.href = item.url;
+    info.textContent = item.url.split('/').pop().slice(0, 40);
+    copyUrl.style.display = '';
+    openTab.style.display = '';
+    dl.style.display = '';
+  } else {
+    iframe.src = 'about:blank';
+    iframe.srcdoc = `<html><body style="font-family:sans-serif;padding:40px;text-align:center;color:#666">
+      <div style="font-size:48px">📄</div>
+      <h2>Aucun PDF associé</h2>
+      <p>Cet acte est listé sans fichier téléchargeable.</p>
+    </body></html>`;
+    info.textContent = 'Sans PDF';
+    copyUrl.style.display = 'none';
+    openTab.style.display = 'none';
+    dl.style.display = 'none';
+  }
+
+  // Détails
+  const grid = document.getElementById('detailGrid');
+  const rows = [
+    ['ID', item.id],
+    ['Titre', item.titre],
+    ['Type', `${TYPE_META[item.type]?.icon || '📁'} ${TYPE_META[item.type]?.label || item.type}`],
+    ['Numéro', item.numero || '—'],
+    ['Date publication', item.date_publication ? parseDisplayDate(item.date_publication) : '—'],
+    ['Année', item.annee],
+    ['Mois', MOIS_LABEL[item.mois] || item.mois || '—'],
+    ['Département', `${item.departement} — ${item.nom_departement}`],
+    ['Préfecture', item.prefecture],
+    ['Région', item.region],
+    ['URL PDF', item.url ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.url)}</a>` : '—'],
+    ['Doublon ?', state.duplicateIds.has(item.id) ? '⚠️ Oui' : '✅ Non'],
+    ['Longueur titre', `${(item.titre||'').length} caractères`]
+  ];
+  grid.innerHTML = rows.map(([k, v]) => `
+    <dt>${escapeHtml(k)}</dt>
+    <dd>${typeof v === 'string' && v.includes('<a ') ? v : escapeHtml(String(v ?? '—'))}</dd>
+  `).join('');
+
+  // JSON
+  document.getElementById('rawJson').textContent = JSON.stringify(item, null, 2);
+
+  // Activer l'onglet demandé
+  document.querySelectorAll('.modal-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.pane === pane);
+  });
+  document.querySelectorAll('.modal-pane').forEach(p => {
+    p.classList.toggle('active', p.id === 'pane' + pane.charAt(0).toUpperCase() + pane.slice(1));
+  });
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  copyUrl.onclick = async () => {
+    const ok = await copyText(item.url);
+    showToast(ok ? '📋 URL copiée' : '❌ Erreur', ok ? 'success' : 'error');
+  };
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('pdfFrame').src = 'about:blank';
+  document.body.style.overflow = '';
+  state.selectedItem = null;
+}
+
+// ============================================================
+// PAGINATION
+// ============================================================
+function updatePaginationUI(totalPages, current){
+  document.getElementById('paginationInfo').innerHTML =
+    `<strong>${formatNumber(state.totalResults)}</strong> actes · page <strong>${current}</strong> / ${totalPages}`;
+  document.getElementById('pageInput').value = current;
+  document.getElementById('pageInput').max = totalPages;
+  document.getElementById('pageTotal').textContent = `/ ${totalPages}`;
+  document.getElementById('pageFirst').disabled = current <= 1;
+  document.getElementById('pagePrev').disabled = current <= 1;
+  document.getElementById('pageNext').disabled = current >= totalPages;
+  document.getElementById('pageLast').disabled = current >= totalPages;
+  document.getElementById('paginationBar').hidden = false;
+}
+
+function goToPage(p){
+  const totalPages = Math.max(1, Math.ceil(state.totalResults / state.pageSize));
+  runSearch(Math.max(1, Math.min(totalPages, p)));
+}
+
+// ============================================================
+// EXPORTS
+// ============================================================
+function exportCsv(){
+  const list = state.filtered;
+  if (!list.length){ showToast('⚠️ Aucun acte à exporter', 'error'); return; }
+  const cols = ['id','annee','mois','titre','type','numero','date_publication','departement','nom_departement','prefecture','region','url','doublon'];
+  const escapeCsv = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const lines = [cols.join(',')];
+  list.forEach(d => {
+    const row = cols.map(c => {
+      if (c === 'doublon') return escapeCsv(state.duplicateIds.has(d.id) ? 'OUI' : 'NON');
+      return escapeCsv(d[c]);
+    });
+    lines.push(row.join(','));
+  });
+  const blob = new Blob(['\uFEFF' + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `raa_reunion_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast(`📥 ${list.length} actes exportés`, 'success');
+}
+
+async function copyAllLinks(){
+  const urls = state.filtered.filter(d => d.url).map(d => d.url);
+  if (!urls.length){ showToast('⚠️ Aucun lien PDF à copier', 'error'); return; }
+  const ok = await copyText(urls.join('\n'));
+  showToast(ok ? `📋 ${urls.length} liens copiés` : '❌ Erreur', ok ? 'success' : 'error');
+}
+
+function resetFilters(){
+  document.getElementById('queryInput').value = '';
+  document.getElementById('moisSelect').value = '';
+  document.getElementById('anneeSelect').value = '';
+  document.getElementById('typeSelect').value = '';
+  document.getElementById('sortSelect').value = 'recent';
+  document.getElementById('sourceSearch').value = '';
+  document.getElementById('dateFrom').value = '';
+  document.getElementById('dateTo').value = '';
+  document.getElementById('onlyPdf').checked = false;
+  document.getElementById('onlyDup').checked = false;
+  state.activeType = null;
+  renderCategories();
+  if (state.currentView !== 'list') switchView('list');
+  runSearch(1);
+  showToast('🔄 Filtres réinitialisés', 'success');
+}
+
+// ============================================================
+// ÉVÉNEMENTS
+// ============================================================
+const debouncedSearch = debounce(() => runSearch(1), DEBOUNCE_MS);
+
+document.getElementById('searchBtn').addEventListener('click', () => runSearch(1));
+document.getElementById('queryInput').addEventListener('input', debouncedSearch);
+document.getElementById('queryInput').addEventListener('keypress', e => { if (e.key === 'Enter') runSearch(1); });
+document.getElementById('moisSelect').addEventListener('change', () => runSearch(1));
+document.getElementById('anneeSelect').addEventListener('change', () => runSearch(1));
+document.getElementById('typeSelect').addEventListener('change', () => {
+  state.activeType = document.getElementById('typeSelect').value || null;
+  renderCategories();
+  runSearch(1);
+});
+document.getElementById('sortSelect').addEventListener('change', () => runSearch(1));
+document.getElementById('sourceSearch').addEventListener('input', debounce(renderCategories, 150));
+
+['dateFrom','dateTo'].forEach(id => {
+  document.getElementById(id).addEventListener('change', () => runSearch(1));
+});
+document.getElementById('onlyPdf').addEventListener('change', () => runSearch(1));
+document.getElementById('onlyDup').addEventListener('change', () => runSearch(1));
+document.getElementById('resetAdvanced').addEventListener('click', () => {
+  document.getElementById('dateFrom').value = '';
+  document.getElementById('dateTo').value = '';
+  document.getElementById('onlyPdf').checked = false;
+  document.getElementById('onlyDup').checked = false;
+  runSearch(1);
+});
+
+document.querySelectorAll('.view-tab').forEach(tab => {
+  tab.addEventListener('click', () => switchView(tab.dataset.view));
+});
+
+document.getElementById('pageFirst').addEventListener('click', () => goToPage(1));
+document.getElementById('pagePrev').addEventListener('click', () => goToPage(state.currentPage - 1));
+document.getElementById('pageNext').addEventListener('click', () => goToPage(state.currentPage + 1));
+document.getElementById('pageLast').addEventListener('click', () => goToPage(Math.ceil(state.totalResults / state.pageSize)));
+document.getElementById('pageInput').addEventListener('change', e => goToPage(parseInt(e.target.value) || 1));
+document.getElementById('pageSizeSelect').addEventListener('change', e => {
+  state.pageSize = parseInt(e.target.value);
+  runSearch(1);
+});
+
+document.getElementById('exportCsv').addEventListener('click', exportCsv);
+document.getElementById('copyLinks').addEventListener('click', copyAllLinks);
+document.getElementById('resetFilters').addEventListener('click', resetFilters);
+
+// Modale
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target.id === 'modalOverlay') closeModal();
+});
+document.querySelectorAll('.modal-tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.modal-tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.querySelectorAll('.modal-pane').forEach(p => p.classList.remove('active'));
+    const paneId = 'pane' + t.dataset.pane.charAt(0).toUpperCase() + t.dataset.pane.slice(1);
+    document.getElementById(paneId).classList.add('active');
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape'){
+    if (document.getElementById('modalOverlay').classList.contains('open')) closeModal();
+    else document.getElementById('queryInput').blur();
+  }
+  if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && !document.getElementById('modalOverlay').classList.contains('open')){
+    e.preventDefault();
+    document.getElementById('queryInput').focus();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', loadData);
+</script>
+</body>
+</html>
