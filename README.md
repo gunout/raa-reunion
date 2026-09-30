@@ -96,7 +96,7 @@ npm run scrape
 npm run serve
 ```
 
-Puis ouvrez **http://localhost:8000** dans votre navigateur.
+Puis ouvrez **http://localhost:8020** dans votre navigateur.
 
 > ⚠️ **Important** : n'ouvrez **jamais** `index.html` en double-clic (`file://`). Le navigateur bloquera le chargement du JSON pour des raisons de sécurité (CORS). Passez toujours par `http://localhost:8000`.
 
