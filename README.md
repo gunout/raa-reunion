@@ -15,7 +15,13 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)]()
 [![DSFR](https://img.shields.io/badge/DSFR-1.12.1-000091?style=flat-square)](https://www.systeme-de-design.gouv.fr/)
 [![Cheerio](https://img.shields.io/badge/Cheerio-1.0-E88C1C?style=flat-square)]()
-[![PRs](https://img.shields.io/badge/PRs-welcome-00a95f?style=flat-square)]()
+[![PRs](https://img.shields.io/badge/PRs-welcome-00a95f?style=flat-square)](https://github.com/gunout/raa-reunion/pulls)
+
+[![GitHub stars](https://img.shields.io/github/stars/gunout/raa-reunion?style=social)](https://github.com/gunout/raa-reunion/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/gunout/raa-reunion?style=social)](https://github.com/gunout/raa-reunion/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/gunout/raa-reunion?style=flat-square)](https://github.com/gunout/raa-reunion/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/gunout/raa-reunion?style=flat-square)](https://github.com/gunout/raa-reunion/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/gunout/raa-reunion?style=flat-square)](https://github.com/gunout/raa-reunion)
 
 ---
 
@@ -77,8 +83,8 @@ L'outil se compose de deux parties :
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/votre-user/raa-reunion-monitor.git
-cd raa-reunion-monitor
+git clone https://github.com/gunout/raa-reunion.git
+cd raa-reunion
 
 # 2. Installer les dépendances
 npm install
@@ -147,7 +153,7 @@ Pour scraper automatiquement chaque nuit à 3h :
 crontab -e
 
 # Ajouter cette ligne
-0 3 * * * cd /home/user/raa-reunion-monitor && /usr/bin/node scraper.js >> /var/log/raa.log 2>&1
+0 3 * * * cd /home/user/raa-reunion && /usr/bin/node scraper.js >> /var/log/raa.log 2>&1
 ```
 
 ---
@@ -155,7 +161,7 @@ crontab -e
 ## 🏗️ Architecture
 
 ```
-raa-reunion-monitor/
+raa-reunion/
 ├── 📄 index.html              # Dashboard (HTML + CSS + JS inline)
 ├── 🕷️ scraper.js              # Scraper Node.js
 ├── 📦 package.json            # Dépendances et scripts
@@ -307,9 +313,9 @@ Le JSON est généré **manuellement** via `npm run scrape`. Pour des données f
 <summary><strong>Puis-je héberger le dashboard en ligne ?</strong></summary>
 
 Oui ! Le dashboard est 100 % statique. Déposez `index.html` et `json/raa_reunion.json` sur :
-- GitHub Pages
-- Netlify
-- Vercel
+- [GitHub Pages](https://pages.github.com/)
+- [Netlify](https://www.netlify.com/)
+- [Vercel](https://vercel.com/)
 - Un simple `nginx` / `apache`
 
 Aucun backend nécessaire.
@@ -321,11 +327,11 @@ Aucun backend nécessaire.
 
 Les contributions sont **les bienvenues** ! Voici comment procéder :
 
-1. **Fork** le projet
+1. **Fork** le projet ([github.com/gunout/raa-reunion/fork](https://github.com/gunout/raa-reunion/fork))
 2. **Créez** une branche (`git checkout -b feature/ma-fonctionnalite`)
 3. **Committez** (`git commit -m 'Ajout de ma fonctionnalité'`)
 4. **Pushez** (`git push origin feature/ma-fonctionnalite`)
-5. **Ouvrez** une Pull Request
+5. **Ouvrez** une Pull Request ([github.com/gunout/raa-reunion/pulls](https://github.com/gunout/raa-reunion/pulls))
 
 ### Idées d'amélioration
 
@@ -348,7 +354,7 @@ Les contributions sont **les bienvenues** ! Voici comment procéder :
 
 ## 📜 License
 
-Ce projet est sous licence **MIT**. Voir [LICENSE](LICENSE) pour plus de détails.
+Ce projet est sous licence **MIT**. Voir [LICENSE](https://github.com/gunout/raa-reunion/blob/main/LICENSE) pour plus de détails.
 
 ```
 MIT License
@@ -387,9 +393,9 @@ SOFTWARE.
 
 ## 📞 Contact
 
-- 🐛 **Bug / Suggestion** : [Ouvrir une issue](https://github.com/votre-user/raa-reunion-monitor/issues)
-- 💬 **Discussion** : [Ouvrir une discussion](https://github.com/votre-user/raa-reunion-monitor/discussions)
-- 📧 **Email** : votre-email@example.com
+- 🐛 **Bug / Suggestion** : [Ouvrir une issue](https://github.com/gunout/raa-reunion/issues)
+- 💬 **Discussion** : [Ouvrir une discussion](https://github.com/gunout/raa-reunion/discussions)
+- 👤 **Auteur** : [@gunout](https://github.com/gunout)
 
 ---
 
@@ -399,6 +405,7 @@ SOFTWARE.
 
 [![Préfecture](https://img.shields.io/badge/Préfecture-La%20Réunion-0d7a8a?style=flat-square)](https://www.reunion.gouv.fr/)
 [![République](https://img.shields.io/badge/République-Française-000091?style=flat-square)](https://www.gouvernement.fr/)
+[![GitHub](https://img.shields.io/badge/GitHub-gunout%2Fraa--reunion-181717?style=flat-square&logo=github)](https://github.com/gunout/raa-reunion)
 
 *Liberté · Égalité · Fraternité*
 
